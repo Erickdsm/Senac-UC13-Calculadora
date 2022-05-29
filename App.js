@@ -16,6 +16,9 @@ export default function App() {
     const lastNumber = parseFloat(splitNumbers[2])
     const operator = splitNumbers[1]
 
+    const porcentagemCalc = (fistNumber * lastNumber) / 100
+    
+
     // Faz ação referente tecla pressionada
     switch(operator){
       case '+':
@@ -30,12 +33,15 @@ export default function App() {
       case '/': 
         setCurrentNumber((fistNumber / lastNumber).toString())
         return
+      case '%': 
+        setCurrentNumber(((fistNumber / 100) * (lastNumber)).toString())
+        return
     }
   }
 
   function handleInput(buttonPressed){
     console.log(buttonPressed) // Mostra no Console a tecla pressionada
-    if(buttonPressed === '+' | buttonPressed === "-" | buttonPressed === "*" | buttonPressed === "/" ){
+    if(buttonPressed === '+' | buttonPressed === "-" | buttonPressed === "*" | buttonPressed === "/" | buttonPressed === "%" ){
       setCurrentNumber(currentNumber + " " + buttonPressed + " ")
       return
     }
